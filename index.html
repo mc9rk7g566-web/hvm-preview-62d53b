@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Honing van Manuel — Rauwe Zeeuwse honing, recht van de imker (preview)</title>
+<meta name="description" content="Concept-preview van de nieuwe webshop voor Honing van Manuel.">
+<link rel="icon" type="image/png" href="assets/bee.png">
+<link rel="preload" as="image" href="assets/hero-manuel.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playpen+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --geel:#FFBC23;
+  --geel-zacht:#FFD466;
+  --creme:#FFF7E4;
+  --creme-diep:#FFECBC;
+  --zwart:#191512;
+  --rood:#B90000;
+  --amber:#A37100;
+  --wit:#FFFDF8;
+  --radius:26px;
+  --lijn:2.5px solid var(--zwart);
+  --schaduw:0 5px 0 var(--zwart);
+  --font-display:'Baloo 2', system-ui, sans-serif;
+  --font-body:'Inter', system-ui, sans-serif;
+  --font-hand:'Playpen Sans', cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+h1,h2,h3,p{overflow-wrap:break-word}
+body{
+  font-family:var(--font-body);
+  background:var(--creme);
+  color:var(--zwart);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);line-height:1.05;font-weight:800;letter-spacing:-.01em}
+.kicker{
+  font-family:var(--font-body);font-weight:700;font-size:.78rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--amber);display:block;margin-bottom:14px;
+}
+.hand{font-family:var(--font-hand)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+section{position:relative}
+
+/* ---------- knoppen ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-display);font-weight:700;font-size:1.02rem;
+  padding:14px 28px;border-radius:999px;border:var(--lijn);
+  cursor:pointer;text-decoration:none;transition:transform .18s cubic-bezier(.34,1.56,.64,1), box-shadow .18s;
+  box-shadow:var(--schaduw);user-select:none;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--zwart)}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--zwart)}
+.btn-zwart{background:var(--zwart);color:var(--geel);border-color:var(--zwart)}
+.btn-geel{background:var(--geel);color:var(--zwart)}
+.btn-wit{background:var(--wit);color:var(--zwart)}
+
+/* ---------- announcement marquee ---------- */
+.bar{
+  background:var(--zwart);color:var(--creme);overflow:hidden;white-space:nowrap;
+  padding:9px 0;font-size:.82rem;font-weight:600;letter-spacing:.04em;
+}
+.bar-track{display:inline-flex;gap:0;will-change:transform;animation:marquee 28s linear infinite}
+.bar span{display:inline-flex;align-items:center;gap:10px;padding:0 26px}
+.bar .dot{color:var(--geel)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,247,228,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:var(--lijn);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px clamp(20px,4vw,48px);max-width:1400px;margin:0 auto}
+.nav-logo img{height:52px;width:auto}
+.nav-links{display:flex;gap:6px;list-style:none}
+.nav-links a{
+  text-decoration:none;font-weight:600;font-size:.94rem;padding:9px 16px;border-radius:999px;
+  transition:background .15s;
+}
+.nav-links a:hover{background:var(--creme-diep)}
+.cart-btn{
+  position:relative;display:flex;align-items:center;gap:9px;background:var(--geel);
+  border:var(--lijn);border-radius:999px;padding:10px 20px;font-family:var(--font-display);
+  font-weight:700;font-size:.95rem;cursor:pointer;box-shadow:0 3px 0 var(--zwart);
+  transition:transform .15s, box-shadow .15s;
+}
+.cart-btn:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--zwart)}
+.cart-count{
+  background:var(--zwart);color:var(--geel);border-radius:999px;min-width:24px;height:24px;
+  display:grid;place-items:center;font-size:.8rem;padding:0 6px;
+}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--geel);
+  background-image:url("data:image/svg+xml,%3Csvg width='112' height='97' viewBox='0 0 56 48.5' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23191512' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M14 0l14 8v16l-14 8L0 24V8zM42 24.5l14 8v16l-14 8-14-8v-16z'/%3E%3C/g%3E%3C/svg%3E");
+  border-bottom:var(--lijn);overflow:hidden;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,70px);
+  align-items:center;padding:clamp(48px,7vw,96px) 0 clamp(70px,8vw,120px);
+}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.6rem);margin:0 0 22px}
+.hero h1 .accent{
+  position:relative;color:var(--wit);
+  text-shadow:2.5px 2.5px 0 var(--zwart);
+}
+.hero p.lead{font-size:clamp(1.02rem,1.4vw,1.18rem);max-width:34rem;margin-bottom:30px;font-weight:500}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{
+  background:var(--wit);border:2px solid var(--zwart);border-radius:999px;
+  padding:7px 16px;font-size:.85rem;font-weight:600;display:inline-flex;gap:8px;align-items:center;
+}
+.hero-visual{position:relative;justify-self:center;width:min(100%,480px)}
+.hero-foto{
+  border-radius:230px 230px var(--radius) var(--radius);
+  border:3px solid var(--zwart);box-shadow:0 10px 0 var(--zwart);
+  overflow:hidden;aspect-ratio:4/4.6;
+}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transform:scale(1.04)}
+.hero-pot{
+  position:absolute;bottom:-42px;left:-46px;width:37%;
+  filter:drop-shadow(0 14px 18px rgba(25,21,18,.35));
+  will-change:transform;
+}
+.hero-bij{
+  position:absolute;top:-8px;right:-30px;width:88px;transform:rotate(12deg);
+  will-change:transform;
+}
+.sticker{
+  position:absolute;top:26px;left:-30px;background:var(--rood);color:var(--wit);
+  font-family:var(--font-hand);font-weight:700;font-size:.92rem;line-height:1.25;
+  padding:16px 18px;border-radius:999px;border:2.5px solid var(--zwart);
+  transform:rotate(-8deg);box-shadow:0 4px 0 var(--zwart);text-align:center;
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;padding-bottom:90px}
+  .hero-visual{width:min(100%,400px);margin-top:10px}
+  .hero-pot{left:-14px}
+  .sticker{left:auto;right:-8px;top:-14px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2.25rem}
+  .hero p.lead{font-size:.98rem}
+  .btn{padding:12px 20px;font-size:.95rem}
+  .nav-logo img{height:42px}
+}
+
+/* honing-drip rand */
+.drip{display:block;width:100%;height:44px;margin-top:-1px}
+.drip path{fill:var(--geel)}
+.drip-zwart path{fill:var(--zwart)}
+
+/* ---------- usp marquee ---------- */
+.usp{background:var(--zwart);color:var(--creme);overflow:hidden;padding:16px 0;border-bottom:var(--lijn)}
+.usp-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:marquee 22s linear infinite}
+.usp span{
+  font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:.06em;
+  display:inline-flex;align-items:center;gap:22px;padding:0 22px;text-transform:uppercase;
+}
+.usp .bijtje{width:26px;height:26px;flex:none}
+
+/* ---------- shop ---------- */
+.shop{padding:clamp(70px,9vw,120px) 0 30px}
+.shop-kop{max-width:620px;margin-bottom:52px}
+.shop-kop h2{font-size:clamp(2.1rem,4vw,3.2rem);margin-bottom:14px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:1080px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+.card{
+  background:var(--wit);border:var(--lijn);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;position:relative;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+  box-shadow:0 4px 0 var(--zwart);
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 0 var(--zwart)}
+.card-badge{
+  position:absolute;top:14px;left:14px;z-index:3;background:var(--zwart);color:var(--geel);
+  font-family:var(--font-hand);font-size:.72rem;font-weight:700;padding:6px 12px;
+  border-radius:999px;transform:rotate(-4deg);letter-spacing:.02em;
+}
+.card-badge.rood{background:var(--rood);color:var(--wit)}
+.card-visual{
+  padding:34px 30px 10px;display:grid;place-items:center;min-height:230px;position:relative;overflow:visible;
+}
+.card-visual img{
+  max-height:190px;width:auto;filter:drop-shadow(0 12px 12px rgba(25,21,18,.28));
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);will-change:transform;
+}
+.card:hover .card-visual img{transform:translateY(-10px) rotate(-5deg) scale(1.05)}
+.v-geel{background:linear-gradient(160deg,var(--geel) 0%,var(--geel-zacht) 100%)}
+.v-rood{background:linear-gradient(160deg,#D94A2B 0%,#F0A03C 100%)}
+.v-amber{background:linear-gradient(160deg,var(--creme-diep) 0%,#F3D488 100%)}
+.v-zwart{background:linear-gradient(165deg,#241E18 0%,#4a3510 100%)}
+.card-visual::after{
+  content:"";position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='90' height='78' viewBox='0 0 56 48.5' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23191512' stroke-opacity='0.07' stroke-width='1.4'%3E%3Cpath d='M14 0l14 8v16l-14 8L0 24V8zM42 24.5l14 8v16l-14 8-14-8v-16z'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.card-info{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-info h3{font-size:1.3rem}
+.card-info p{font-size:.9rem;color:#4c4438;flex:1}
+.card-prijs{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:10px;flex-wrap:wrap}
+.prijs{font-family:var(--font-display);font-weight:800;font-size:1.5rem}
+.prijs .oud{font-size:.95rem;font-weight:600;color:#9a8a6a;text-decoration:line-through;margin-right:8px}
+.prijs .per{font-size:.78rem;font-weight:600;color:#9a8a6a}
+.add{
+  background:var(--geel);border:2px solid var(--zwart);border-radius:999px;
+  font-family:var(--font-display);font-weight:700;font-size:.88rem;padding:9px 16px;cursor:pointer;
+  box-shadow:0 3px 0 var(--zwart);transition:transform .15s, box-shadow .15s;white-space:nowrap;
+}
+.add:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--zwart)}
+.add:active{transform:translateY(2px);box-shadow:0 1px 0 var(--zwart)}
+.card-zwart{background:var(--zwart);color:var(--creme)}
+.card-zwart .card-info p{color:#cfc4ad}
+.card-zwart .prijs .oud{color:#8d8271}
+.mini-inhoud{font-size:.78rem;color:#cfc4ad;display:flex;gap:6px;flex-wrap:wrap}
+.mini-inhoud em{font-style:normal;background:rgba(255,188,35,.16);border-radius:6px;padding:2px 7px}
+
+/* smaak-chips op hakhoning kaart */
+.smaakjes{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.smaakjes i{
+  font-style:normal;font-size:.68rem;font-weight:600;background:var(--creme-diep);
+  border:1.5px solid var(--zwart);border-radius:999px;padding:2px 8px;
+}
+
+.shop-note{
+  text-align:center;font-family:var(--font-hand);font-size:.95rem;color:var(--amber);
+  margin:34px 0 0;
+}
+
+/* ---------- lekker-op marquee ---------- */
+.lekker{
+  background:var(--creme-diep);border-top:1.5px dashed #d8c9a4;border-bottom:1.5px dashed #d8c9a4;
+  overflow:hidden;padding:13px 0;
+}
+.lekker-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:marquee 30s linear infinite reverse}
+.lekker span{
+  font-family:var(--font-hand);font-weight:600;font-size:1rem;color:var(--amber);
+  padding:0 30px;
+}
+
+/* ---------- bundels ---------- */
+.bundels{padding:clamp(70px,9vw,110px) 0;background:var(--wit);border-top:var(--lijn)}
+.bundels-kop{max-width:620px;margin-bottom:46px}
+.bundels-kop h2{font-size:clamp(2rem,3.8vw,3rem);margin-bottom:12px}
+.bundel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.bundel-grid{grid-template-columns:1fr}}
+.bundel{
+  background:var(--creme);border:var(--lijn);border-radius:var(--radius);padding:30px 28px;
+  box-shadow:0 4px 0 var(--zwart);display:flex;flex-direction:column;gap:9px;position:relative;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+}
+.bundel:hover{transform:translateY(-6px);box-shadow:0 10px 0 var(--zwart)}
+.bundel-uitgelicht{background:var(--geel)}
+.b-badge{
+  position:absolute;top:-16px;right:18px;background:var(--zwart);color:var(--geel);
+  font-family:var(--font-hand);font-size:.75rem;font-weight:700;padding:7px 14px;
+  border-radius:999px;transform:rotate(3deg);
+}
+.b-emoji{font-size:2rem}
+.bundel h3{font-size:1.25rem}
+.bundel p{font-size:.88rem;color:#4c4438;flex:1}
+.b-prijs{font-family:var(--font-display);font-weight:800;font-size:1.5rem}
+.b-prijs .oud{font-size:.95rem;font-weight:600;color:#9a8a6a;text-decoration:line-through;margin-right:6px}
+.bespaar{font-size:.8rem;font-weight:700;color:#1a7a2e}
+.bundel .add{align-self:flex-start;margin-top:8px}
+
+/* ---------- zakelijk ---------- */
+.zakelijk{
+  margin-top:56px;background:var(--wit);border:var(--lijn);border-radius:var(--radius);
+  box-shadow:0 5px 0 var(--zwart);padding:30px 34px;display:flex;gap:26px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;
+}
+.zakelijk h3{font-size:1.3rem;margin-bottom:6px}
+.zakelijk p{font-size:.92rem;max-width:36rem}
+
+/* ---------- smakenband ---------- */
+.smaken{padding:clamp(60px,7vw,100px) 0}
+.smaken-kop{text-align:center;max-width:640px;margin:0 auto 44px}
+.smaken-kop h2{font-size:clamp(2rem,3.6vw,3rem)}
+.smaken-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:900px;margin:0 auto}
+.smaak{
+  font-family:var(--font-display);font-weight:700;font-size:clamp(.95rem,1.4vw,1.15rem);
+  background:var(--wit);border:var(--lijn);border-radius:999px;padding:12px 22px;
+  display:inline-flex;gap:10px;align-items:center;box-shadow:0 3px 0 var(--zwart);
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1), background .2s;cursor:default;
+}
+.smaak:hover{transform:translateY(-5px) rotate(-2deg);background:var(--geel)}
+.smaak:nth-child(even):hover{transform:translateY(-5px) rotate(2deg)}
+
+/* ---------- verhaal ---------- */
+.verhaal{background:var(--creme-diep);border-top:var(--lijn);border-bottom:var(--lijn);padding:clamp(70px,9vw,120px) 0}
+.verhaal-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,6vw,80px);align-items:center}
+@media(max-width:900px){.verhaal-grid{grid-template-columns:1fr}}
+.verhaal-foto{position:relative;justify-self:center;width:min(100%,440px)}
+.verhaal-foto .foto{
+  border-radius:var(--radius);border:3px solid var(--zwart);box-shadow:0 8px 0 var(--zwart);
+  overflow:hidden;transform:rotate(-2deg);
+}
+.verhaal-foto .foto img{aspect-ratio:1;object-fit:cover}
+.rond-sticker{
+  position:absolute;right:-34px;top:-34px;width:118px;height:118px;animation:draai 14s linear infinite;
+}
+@keyframes draai{to{transform:rotate(360deg)}}
+.verhaal-tekst h2{font-size:clamp(2.1rem,4vw,3.1rem);margin-bottom:20px}
+.verhaal-tekst p{margin-bottom:16px;max-width:36rem}
+.handtekening{font-family:var(--font-hand);font-size:1.25rem;font-weight:700;color:var(--amber);margin:22px 0 26px}
+.soc-knoppen{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ---------- vergelijk ---------- */
+.vergelijk{padding:clamp(70px,9vw,120px) 0}
+.vergelijk-kop{max-width:620px;margin-bottom:48px}
+.vergelijk-kop h2{font-size:clamp(2rem,3.8vw,3rem)}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:980px}
+@media(max-width:800px){.vs-grid{grid-template-columns:1fr}}
+.vs-kaart{border:var(--lijn);border-radius:var(--radius);padding:30px 32px;box-shadow:0 5px 0 var(--zwart)}
+.vs-kaart h3{font-size:1.35rem;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.vs-kaart ul{list-style:none;display:grid;gap:12px}
+.vs-kaart li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;font-weight:500}
+.vs-kaart li b{flex:none;width:24px;height:24px;border-radius:999px;display:grid;place-items:center;font-size:.7rem;margin-top:2px}
+.vs-manuel{background:var(--zwart);color:var(--creme)}
+.vs-manuel li b{background:var(--geel);color:var(--zwart)}
+.vs-super{background:var(--wit)}
+.vs-super li b{background:#E8DFCC;color:var(--rood)}
+.vs-super h3 span, .vs-manuel h3 span{font-size:1.5rem}
+
+/* ---------- horeca ---------- */
+.horeca{background:var(--geel);border-top:var(--lijn);border-bottom:var(--lijn);padding:clamp(70px,9vw,110px) 0;overflow:hidden}
+.horeca-kop{text-align:center;max-width:640px;margin:0 auto 50px}
+.horeca-kop h2{font-size:clamp(2rem,3.8vw,3rem)}
+.polaroids{display:flex;gap:clamp(14px,3vw,34px);justify-content:center;align-items:stretch;flex-wrap:wrap}
+.polaroid{
+  background:var(--wit);border:var(--lijn);border-radius:16px;padding:12px 12px 40px;
+  box-shadow:0 6px 0 var(--zwart);width:min(270px,80vw);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);position:relative;
+}
+.polaroid img{border-radius:8px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.polaroid:nth-child(1){transform:rotate(-4deg)}
+.polaroid:nth-child(2){transform:rotate(2.5deg) translateY(10px)}
+.polaroid:nth-child(3){transform:rotate(-1.5deg)}
+.polaroid:hover{transform:rotate(0) translateY(-6px) scale(1.02);z-index:2}
+.polaroid figcaption{
+  position:absolute;bottom:9px;left:0;right:0;text-align:center;
+  font-family:var(--font-hand);font-size:.85rem;font-weight:600;
+}
+
+/* ---------- reviews ---------- */
+.reviews{padding:clamp(70px,9vw,110px) 0}
+.reviews-kop{text-align:center;margin-bottom:46px}
+.reviews-kop h2{font-size:clamp(2rem,3.6vw,2.9rem)}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:860px){.review-grid{grid-template-columns:1fr}}
+.review{
+  background:var(--wit);border:var(--lijn);border-radius:var(--radius);padding:28px;
+  box-shadow:0 4px 0 var(--zwart);display:flex;flex-direction:column;gap:14px;
+}
+.sterren{color:var(--geel);font-size:1.1rem;letter-spacing:3px;text-shadow:0 1px 0 var(--zwart)}
+.review p{font-size:.95rem;font-weight:500}
+.review .naam{font-family:var(--font-hand);font-size:.9rem;color:var(--amber);margin-top:auto}
+.reviews-voetnoot{text-align:center;font-size:.78rem;color:#9a8a6a;margin-top:26px}
+
+/* ---------- slot-cta ---------- */
+.slot{background:var(--zwart);color:var(--creme);text-align:center;padding:clamp(80px,10vw,130px) 0}
+.slot .hand-lead{font-family:var(--font-hand);color:var(--geel);font-size:1.1rem;margin-bottom:16px;display:block}
+.slot h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:18px}
+.slot h2 .accent{color:var(--geel)}
+.slot p{max-width:34rem;margin:0 auto 34px;color:#cfc4ad}
+
+/* ---------- footer ---------- */
+footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot img{height:44px}
+.foot-links{display:flex;gap:22px;font-size:.88rem;font-weight:600}
+.foot-links a{text-decoration:none}
+.foot-links a:hover{text-decoration:underline}
+.preview-note{
+  margin-top:26px;padding-top:22px;border-top:1.5px dashed #d8c9a4;
+  font-size:.78rem;color:#9a8a6a;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* ---------- cart drawer ---------- */
+.drawer-scrim{
+  position:fixed;inset:0;background:rgba(25,21,18,.45);opacity:0;pointer-events:none;
+  transition:opacity .25s;z-index:90;
+}
+.drawer-scrim.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(430px,94vw);background:var(--creme);
+  border-left:var(--lijn);z-index:95;transform:translateX(105%);
+  transition:transform .35s cubic-bezier(.32,.72,.28,1);display:flex;flex-direction:column;
+}
+.drawer.open{transform:translateX(0)}
+.drawer-kop{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:var(--lijn)}
+.drawer-kop h3{font-size:1.25rem}
+.drawer-sluit{background:none;border:2px solid var(--zwart);border-radius:999px;width:36px;height:36px;font-size:1rem;cursor:pointer;font-weight:700}
+.verzend{padding:18px 24px;border-bottom:1.5px dashed #d8c9a4}
+.verzend-tekst{font-size:.85rem;font-weight:600;margin-bottom:10px}
+.verzend-tekst b{color:var(--rood)}
+.verzend-balk{height:16px;background:var(--wit);border:2px solid var(--zwart);border-radius:999px;position:relative}
+.verzend-vul{
+  height:100%;width:0%;background:repeating-linear-gradient(-45deg,var(--geel) 0 10px,var(--geel-zacht) 10px 20px);
+  border-right:2px solid var(--zwart);transition:width .5s cubic-bezier(.32,.72,.28,1);
+  border-radius:999px 0 0 999px;
+}
+.verzend-vul.vol{border-right:none;border-radius:999px}
+.mijlpaal{
+  position:absolute;top:-9px;font-size:.85rem;transform:translateX(-50%);
+  filter:grayscale(1);transition:filter .3s, transform .3s;
+}
+.mijlpaal.actief{filter:grayscale(0);transform:translateX(-50%) scale(1.25)}
+.mijlpaal-labels{display:flex;justify-content:space-between;font-size:.66rem;color:#9a8a6a;font-weight:600;margin-top:6px}
+.drawer-items{flex:1;overflow-y:auto;padding:10px 24px}
+.d-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1.5px dashed #e4d7b4}
+.d-item .thumb{
+  width:58px;height:58px;background:var(--wit);border:2px solid var(--zwart);border-radius:14px;
+  display:grid;place-items:center;flex:none;
+}
+.d-item .thumb img{max-width:70%;max-height:80%}
+.d-item .d-info{flex:1}
+.d-item .d-naam{font-weight:700;font-size:.9rem}
+.d-item .d-prijs{font-size:.82rem;color:#7c6f58}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{
+  width:26px;height:26px;border-radius:999px;border:2px solid var(--zwart);background:var(--wit);
+  font-weight:800;cursor:pointer;line-height:1;
+}
+.qty span{font-weight:700;min-width:16px;text-align:center;font-size:.9rem}
+.leeg-melding{text-align:center;padding:40px 10px;color:#9a8a6a;font-family:var(--font-hand)}
+.upsell{padding:16px 24px;border-top:1.5px dashed #d8c9a4}
+.upsell-titel{font-family:var(--font-hand);font-size:.85rem;font-weight:700;color:var(--amber);margin-bottom:10px}
+.upsell-rij{display:flex;gap:12px;align-items:center;background:var(--wit);border:2px solid var(--zwart);border-radius:16px;padding:10px 14px}
+.upsell-rij img{width:38px;height:38px;object-fit:contain}
+.upsell-rij .u-tekst{flex:1;font-size:.82rem;font-weight:600;line-height:1.35}
+.upsell-rij button{
+  background:var(--geel);border:2px solid var(--zwart);border-radius:999px;padding:6px 13px;
+  font-weight:700;font-size:.78rem;cursor:pointer;font-family:var(--font-display);
+}
+.cadeau{padding:14px 24px;border-top:1.5px dashed #d8c9a4}
+.cadeau-check{display:flex;gap:10px;align-items:center;font-size:.85rem;font-weight:600;cursor:pointer}
+.cadeau-check input{width:18px;height:18px;accent-color:var(--geel);cursor:pointer}
+.cadeau-bericht{
+  margin-top:10px;width:100%;border:2px solid var(--zwart);border-radius:12px;padding:10px 12px;
+  font-family:var(--font-hand);font-size:.85rem;background:var(--wit);resize:none;
+}
+.besparing{font-size:.82rem;font-weight:600;color:#1a7a2e;margin-bottom:8px}
+.drawer-voet{padding:18px 24px 22px;border-top:var(--lijn);background:var(--creme-diep)}
+.totaal{display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:800;font-size:1.2rem;margin-bottom:14px}
+.drawer-voet .btn{width:100%;justify-content:center}
+.demo-tip{font-size:.72rem;color:#9a8a6a;text-align:center;margin-top:10px}
+
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);z-index:99;
+  background:var(--zwart);color:var(--creme);font-weight:600;font-size:.9rem;
+  padding:13px 24px;border-radius:999px;border:2px solid var(--geel);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;
+}
+.toast.zichtbaar{transform:translate(-50%,0)}
+
+/* ---------- preview-ribbon ---------- */
+.ribbon{
+  position:fixed;bottom:18px;right:18px;z-index:80;background:var(--wit);
+  border:2px solid var(--zwart);border-radius:999px;padding:8px 16px;
+  font-size:.75rem;font-weight:700;box-shadow:0 3px 0 var(--zwart);
+}
+
+/* ---------- cursor-dot (desktop) ---------- */
+.cursor-dot{
+  position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;
+  background:var(--geel);border:2px solid var(--zwart);pointer-events:none;z-index:999;
+  transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;opacity:0;
+  mix-blend-mode:normal;
+}
+@media(hover:none){.cursor-dot{display:none}}
+
+/* reveal-standen: zichtbaar zonder JS; GSAP zet ze zelf klaar */
+.reveal{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- announcement -->
+<div class="bar" aria-hidden="true">
+  <div class="bar-track" id="barTrack">
+    <span>🍯 Gratis verzending in heel NL vanaf €35</span><span class="dot">•</span>
+    <span>🐝 Vers van de imker uit Zeeland</span><span class="dot">•</span>
+    <span>🎁 Vanaf €50: gratis honinglepel cadeau</span><span class="dot">•</span>
+    <span>🌶️ Hot Honey — it might sting!</span><span class="dot">•</span>
+    <span>🧡 20% korting bij 4+ bakjes hakhoning</span><span class="dot">•</span>
+  </div>
+</div>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="nav-logo" aria-label="Honing van Manuel"><img src="assets/logo.png" alt="Honing van Manuel"></a>
+    <ul class="nav-links">
+      <li><a href="#shop">De oogst</a></li>
+      <li><a href="#smaken">Smaken</a></li>
+      <li><a href="#verhaal">Het verhaal</a></li>
+      <li><a href="#horeca">Horeca</a></li>
+    </ul>
+    <button class="cart-btn" id="cartOpen">🛒 Winkelwagen <span class="cart-count" id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<!-- hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-tekst">
+      <span class="kicker" style="color:var(--zwart);opacity:.65">Ambachtelijke Zeeuwse imkerij</span>
+      <h1>Rauwe honing,<br><span class="accent">recht van de imker.</span></h1>
+      <p class="lead">Koud geslingerd, niet verhit, niets toegevoegd. Elke pot proeft naar het Zeeuwse seizoen en de bloemen waar mijn bijen op vlogen.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn btn-zwart">Ontdek de honing ↓</a>
+        <a href="#verhaal" class="btn btn-wit">Maak kennis met Manuel</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip">🍯 100% natuurproduct</span>
+        <span class="chip">✋ Met de hand afgevuld</span>
+        <span class="chip">📍 Lokaal geoogst in Zeeland</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-foto"><img src="assets/hero-manuel.jpg" alt="Imker Manuel met twee potten verse honing bij zijn bijenkasten" fetchpriority="high"></div>
+      <img class="hero-pot" id="heroPot" src="assets/pot-zeeuwse-honing.webp" alt="" aria-hidden="true">
+      <img class="hero-bij" id="heroBij" src="assets/bee.png" alt="" aria-hidden="true">
+      <div class="sticker">rauw<br>&amp; puur</div>
+    </div>
+  </div>
+</section>
+
+<!-- usp marquee -->
+<div class="usp" aria-hidden="true">
+  <div class="usp-track" id="uspTrack">
+    <span>Rauw &amp; ongefilterd <img class="bijtje" src="assets/bee.png" alt=""></span>
+    <span>Koud geslingerd <img class="bijtje" src="assets/bee.png" alt=""></span>
+    <span>Geen toevoegingen <img class="bijtje" src="assets/bee.png" alt=""></span>
+    <span>Vers van de imker <img class="bijtje" src="assets/bee.png" alt=""></span>
+    <span>100% Zeeuws <img class="bijtje" src="assets/bee.png" alt=""></span>
+  </div>
+</div>
+
+<!-- shop -->
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="shop-kop reveal">
+      <span class="kicker">De oogst</span>
+      <h2>Kies jouw pot</h2>
+      <p>Drie eerlijke producten, met de hand afgevuld — en een proefpakket om alles in één keer te ontdekken.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card-badge">Bestseller</span>
+        <div class="card-visual v-geel"><img src="assets/pot-zeeuwse-honing.webp" alt="Pot Natuurlijke Zeeuwse Honing"></div>
+        <div class="card-info">
+          <h3>Zeeuwse Honing</h3>
+          <p>De klassieker. Koud geslingerd, vol karakter, vol enzymen en lokale pollen. Elke oogst smaakt anders — zoals het hoort.</p>
+          <div class="card-prijs">
+            <span class="prijs">€9,50 <span class="per">/ pot</span></span>
+            <button class="add" data-naam="Zeeuwse Honing" data-prijs="9.50" data-img="assets/pot-zeeuwse-honing.webp">+ Winkelmand</button>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <span class="card-badge rood">It might sting 🌶️</span>
+        <div class="card-visual v-rood"><img src="assets/fles-hot-honey.webp" alt="Fles Natuurlijke Hot Honey"></div>
+        <div class="card-info">
+          <h3>Hot Honey</h3>
+          <p>Zoet met een beet: rauwe honing, geselecteerde chilipepers en een vleugje azijn. Heerlijk op pizza, kip of bij de barbecue.</p>
+          <div class="card-prijs">
+            <span class="prijs">€8,50 <span class="per">/ fles</span></span>
+            <button class="add" data-naam="Hot Honey" data-prijs="8.50" data-img="assets/fles-hot-honey.webp">+ Winkelmand</button>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <span class="card-badge">12 smaken</span>
+        <div class="card-visual v-amber"><img src="assets/bakje-hakhoning.webp" alt="Bakje Natuurlijke Hakhoning"></div>
+        <div class="card-info">
+          <h3>Hakhoning</h3>
+          <p>Verantwoord snoepen op basis van pure honing.</p>
+          <div class="smaakjes"><i>Kaneel</i><i>Kers</i><i>Mojito</i><i>Drop</i><i>+ 8 meer</i></div>
+          <div class="card-prijs">
+            <span class="prijs">€3,50 <span class="per">/ bakje</span></span>
+            <button class="add" data-naam="Hakhoning" data-prijs="3.50" data-img="assets/bakje-hakhoning.webp">+ Winkelmand</button>
+          </div>
+        </div>
+      </article>
+      <article class="card card-zwart reveal">
+        <span class="card-badge" style="background:var(--geel);color:var(--zwart)">Cadeautip 🎁</span>
+        <div class="card-visual v-zwart"><img src="assets/pot-zeeuwse-honing.webp" alt="Proefpakket met pot honing, hot honey en hakhoning" style="max-height:170px"></div>
+        <div class="card-info">
+          <h3>Proefpakket</h3>
+          <p>Proef alles in één keer: dé kennismaking met echte Zeeuwse honing.</p>
+          <div class="mini-inhoud"><em>1× Zeeuwse Honing</em><em>1× Hot Honey</em><em>2× Hakhoning</em></div>
+          <div class="card-prijs">
+            <span class="prijs"><span class="oud">€25,00</span>€22,50</span>
+            <button class="add" data-naam="Proefpakket" data-prijs="22.50" data-oud="25.00" data-img="assets/pot-zeeuwse-honing.webp">+ Winkelmand</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="shop-note">→ psst: vanaf €35 is de verzending gratis — een proefpakket + een paar bakjes hakhoning en je zit er zo 😉</p>
+  </div>
+</section>
+
+<!-- lekker op... -->
+<div class="lekker" aria-hidden="true">
+  <div class="lekker-track" id="lekkerTrack">
+    <span>Lekker op toast 🍞</span><span>in de thee ☕</span><span>door de yoghurt 🥣</span>
+    <span>op de kaasplank 🧀</span><span>over de pizza 🍕</span><span>op pannenkoeken 🥞</span>
+    <span>in de marinade 🍗</span><span>zo uit de pot 🥄</span>
+  </div>
+</div>
+
+<!-- smaken -->
+<section class="smaken" id="smaken">
+  <div class="wrap">
+    <div class="smaken-kop reveal">
+      <span class="kicker">Hakhoning</span>
+      <h2>Welke smaak past bij jou?</h2>
+      <p>Twaalf smaken, één basis: échte honing. Mix &amp; match je eigen doosje — bij 4 of meer bakjes krijg je 20% korting.</p>
+    </div>
+    <div class="smaken-grid" id="smaakGrid">
+      <span class="smaak">🌿 Munt</span>
+      <span class="smaak">✨ Gember</span>
+      <span class="smaak">🟤 Kaneel</span>
+      <span class="smaak">🍒 Kers</span>
+      <span class="smaak">🍃 Mojito</span>
+      <span class="smaak">🌱 Eucalyptus</span>
+      <span class="smaak">⚫ Drop</span>
+      <span class="smaak">🍋 Limoncello</span>
+      <span class="smaak">🍎 Appel + Kaneel</span>
+      <span class="smaak">🥤 Cola</span>
+      <span class="smaak">⭐ Anijs</span>
+      <span class="smaak">🍮 Caramel</span>
+    </div>
+  </div>
+</section>
+
+<!-- bundels -->
+<section class="bundels" id="bundels">
+  <div class="wrap">
+    <div class="bundels-kop reveal">
+      <span class="kicker">Slim sparen</span>
+      <h2>Pakketten die zichzelf terugverdienen</h2>
+      <p>Meer proeven, minder betalen — en sneller bij de gratis verzending.</p>
+    </div>
+    <div class="bundel-grid">
+      <article class="bundel reveal">
+        <div class="b-emoji">🍯🌶️</div>
+        <h3>Duo Zoet &amp; Heet</h3>
+        <p>1× Zeeuwse Honing + 1× Hot Honey</p>
+        <div class="b-prijs"><span class="oud">€18,00</span> <b>€16,50</b></div>
+        <div class="bespaar">Je bespaart €1,50</div>
+        <button class="add" data-naam="Duo Zoet & Heet" data-prijs="16.50" data-oud="18.00" data-img="assets/fles-hot-honey.webp">+ Winkelmand</button>
+      </article>
+      <article class="bundel reveal">
+        <div class="b-emoji">🎨</div>
+        <h3>Alle 12 smaken hakhoning</h3>
+        <p>Het complete smakenpalet in één doos</p>
+        <div class="b-prijs"><span class="oud">€42,00</span> <b>€33,50</b></div>
+        <div class="bespaar">Je bespaart €8,50 (20%)</div>
+        <button class="add" data-naam="12 smaken hakhoning" data-prijs="33.50" data-oud="42.00" data-img="assets/bakje-hakhoning.webp">+ Winkelmand</button>
+      </article>
+      <article class="bundel bundel-uitgelicht reveal">
+        <span class="b-badge">Incl. gratis verzending 🚚</span>
+        <div class="b-emoji">👨‍👩‍👧‍👦</div>
+        <h3>XL Familiepakket</h3>
+        <p>2× Zeeuwse Honing + 1× Hot Honey + 4× hakhoning</p>
+        <div class="b-prijs"><span class="oud">€50,00</span> <b>€44,50</b></div>
+        <div class="bespaar">Je bespaart €5,50 + gratis honinglepel</div>
+        <button class="add" data-naam="XL Familiepakket" data-prijs="44.50" data-oud="50.00" data-img="assets/pot-zeeuwse-honing.webp">+ Winkelmand</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- verhaal -->
+<section class="verhaal" id="verhaal">
+  <div class="wrap verhaal-grid">
+    <div class="verhaal-foto reveal">
+      <div class="foto"><img src="assets/lifestyle-9.jpg" alt="Manuel in imkerpak bij zijn bijenkasten met twee potten honing" loading="lazy"></div>
+      <svg class="rond-sticker" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="cirkel" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="#FFBC23" stroke="#191512" stroke-width="2.5"/>
+        <circle cx="60" cy="60" r="30" fill="none"/>
+        <text style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:2.5px" fill="#191512">
+          <textPath href="#cirkel">100% ZEEUWS · RAUW &amp; PUUR ·</textPath>
+        </text>
+        <text x="60" y="70" text-anchor="middle" font-size="26">🐝</text>
+      </svg>
+    </div>
+    <div class="verhaal-tekst reveal">
+      <span class="kicker">De imker achter de pot</span>
+      <h2>Hoi, ik ben Manuel</h2>
+      <p>Mijn bijen verzamelen nectar uit de directe omgeving. Daarom zit elke pot vol unieke smaken en eigenschappen van het Zeeuwse seizoen — geen twee oogsten zijn hetzelfde.</p>
+      <p>Ik slinger koud, voeg niets toe en vul elke pot met de hand af. Geen 'gemengde niet-EU honing' zoals in de supermarkt, maar een eerlijk natuurproduct waar ik trots op ben. Op Instagram en TikTok neem ik je mee achter de schermen: van bijenkast tot pot.</p>
+      <p class="handtekening">— Groetjes, Imker Manuel 🐝</p>
+      <div class="soc-knoppen">
+        <a class="btn btn-zwart" href="https://www.instagram.com/honing.van.manuel/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a class="btn btn-wit" href="https://www.tiktok.com/@imkermanuel" target="_blank" rel="noopener">TikTok ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- vergelijk -->
+<section class="vergelijk">
+  <div class="wrap">
+    <div class="vergelijk-kop reveal">
+      <span class="kicker">Het verschil dat je proeft</span>
+      <h2>Echte honing vs. de supermarkt</h2>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-kaart vs-manuel reveal">
+        <h3><span>🍯</span> Honing van Manuel</h3>
+        <ul>
+          <li><b>✓</b> 100% Zeeuws, van één imker die je kent</li>
+          <li><b>✓</b> Koud geslingerd — vol enzymen, mineralen &amp; antioxidanten</li>
+          <li><b>✓</b> Helpt bij hooikoorts door lokale pollen</li>
+          <li><b>✓</b> Elke pot weerspiegelt het seizoen</li>
+        </ul>
+      </div>
+      <div class="vs-kaart vs-super reveal">
+        <h3><span>🏭</span> Supermarkthoning</h3>
+        <ul>
+          <li><b>✕</b> Vaak 'gemengde honing uit niet-EU-landen'</li>
+          <li><b>✕</b> Verhit en gefilterd — goede stoffen verdwijnen</li>
+          <li><b>✕</b> Anoniem: geen verhaal, geen herkomst</li>
+          <li><b>✕</b> Overal hetzelfde smaakje</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- horeca -->
+<section class="horeca" id="horeca">
+  <div class="wrap">
+    <div class="horeca-kop reveal">
+      <span class="kicker" style="color:var(--zwart);opacity:.65">Ook op de kaart</span>
+      <h2>Chefs proeven het verschil</h2>
+      <p>Van bijenkast tot bordje: Manuels honing wordt geproefd én gebruikt in de Zeeuwse horeca.</p>
+    </div>
+    <div class="polaroids">
+      <figure class="polaroid reveal"><img src="assets/horeca-3.jpg" alt="Manuel laat een verse honingraat zien in een restaurantkeuken" loading="lazy"><figcaption>vers raatje voor de chef 🍯</figcaption></figure>
+      <figure class="polaroid reveal"><img src="assets/hothoney-food.jpg" alt="Manuel proeft honing samen met een chef" loading="lazy"><figcaption>proeven met de chef 👨‍🍳</figcaption></figure>
+      <figure class="polaroid reveal"><img src="assets/horeca-1.jpg" alt="Manuel levert honing af bij een restaurant" loading="lazy"><figcaption>verse levering 📦</figcaption></figure>
+    </div>
+    <div class="zakelijk reveal">
+      <div>
+        <h3>Zeeuwse honing als relatiegeschenk of op je menukaart?</h3>
+        <p>Kerstpakketten, potjes met eigen etiket of een vaste horeca-levering — altijd maatwerk, altijd rechtstreeks van de imker.</p>
+      </div>
+      <a class="btn btn-zwart" href="mailto:info@honingvanmanuel.nl?subject=Zakelijke%20aanvraag">Vraag een offerte aan</a>
+    </div>
+  </div>
+</section>
+
+<!-- reviews -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="reviews-kop reveal">
+      <span class="kicker">Zeeuws goud, zeggen zij</span>
+      <h2>Wat proevers ervan vinden</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review reveal">
+        <div class="sterren">★★★★★</div>
+        <p>"Je proeft gewoon dat dit échte honing is. Die van de supermarkt komt er niet meer in."</p>
+        <span class="naam">— Voorbeeldreview</span>
+      </div>
+      <div class="review reveal">
+        <div class="sterren">★★★★★</div>
+        <p>"De Hot Honey op een pizza is levensveranderend. En leuk om te zien wie 'm maakt via TikTok!"</p>
+        <span class="naam">— Voorbeeldreview</span>
+      </div>
+      <div class="review reveal">
+        <div class="sterren">★★★★★</div>
+        <p>"Proefpakket cadeau gedaan — groot succes. De hakhoning met kaneel was als eerste op."</p>
+        <span class="naam">— Voorbeeldreview</span>
+      </div>
+    </div>
+    <p class="reviews-voetnoot">In de echte shop komen hier jouw geverifieerde klantreviews (bijv. via Judge.me) — met sterren die ook in Google zichtbaar zijn.</p>
+  </div>
+</section>
+
+<!-- slot-cta -->
+<section class="slot">
+  <div class="wrap">
+    <span class="hand-lead reveal">op = op per oogst</span>
+    <h2 class="reveal">Proef het <span class="accent">echte</span> Zeeland.</h2>
+    <p class="reveal">Bestel je proefpakket en ontdek waarom honing van een echte imker nergens op lijkt.</p>
+    <button class="btn btn-geel reveal add" data-naam="Proefpakket" data-prijs="22.50" data-oud="25.00" data-img="assets/pot-zeeuwse-honing.webp">Bestel het proefpakket →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <img src="assets/logo.png" alt="Honing van Manuel">
+      <div class="foot-links">
+        <a href="#shop">De oogst</a>
+        <a href="#verhaal">Het verhaal</a>
+        <a href="https://www.instagram.com/honing.van.manuel/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@imkermanuel" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <div class="preview-note">
+      <span>© 2026 Honing van Manuel · Ambachtelijke Zeeuwse imkerij</span>
+      <span>Concept-preview door Job Stolwerk (JS - Crest) — aanbod, bundels en reviews zijn indicatief</span>
+    </div>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="drawer-scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Winkelwagen">
+  <div class="drawer-kop">
+    <h3>Jouw winkelwagen</h3>
+    <button class="drawer-sluit" id="cartClose" aria-label="Sluiten">✕</button>
+  </div>
+  <div class="verzend">
+    <div class="verzend-tekst" id="verzendTekst">Nog <b>€35,00</b> tot gratis verzending 🚚</div>
+    <div class="verzend-balk">
+      <div class="verzend-vul" id="verzendVul"></div>
+      <span class="mijlpaal" style="left:70%" title="€35 — gratis verzending">🚚</span>
+      <span class="mijlpaal" style="left:calc(100% - 20px)" title="€50 — gratis honinglepel">🥄</span>
+    </div>
+    <div class="mijlpaal-labels"><span>€35 gratis verzending</span><span>€50 + gratis lepel</span></div>
+  </div>
+  <div class="drawer-items" id="drawerItems">
+    <p class="leeg-melding">Je winkelwagen is nog leeg… tijd voor honing! 🍯</p>
+  </div>
+  <div class="upsell" id="upsell" style="display:none">
+    <div class="upsell-titel">Maak 'm compleet ↓</div>
+    <div class="upsell-rij">
+      <img src="assets/bakje-hakhoning.webp" alt="">
+      <div class="u-tekst">Bakje hakhoning erbij? <br><b>€3,50</b> — 12 smaken</div>
+      <button class="add" data-naam="Hakhoning" data-prijs="3.50" data-img="assets/bakje-hakhoning.webp">+ Voeg toe</button>
+    </div>
+  </div>
+  <div class="cadeau" id="cadeauBlok" style="display:none">
+    <label class="cadeau-check">
+      <input type="checkbox" id="cadeauCheck">
+      <span>🎁 Dit is een cadeau — inpakken + kaartje <b>(+€2,95)</b></span>
+    </label>
+    <textarea class="cadeau-bericht" id="cadeauBericht" placeholder="Persoonlijk bericht (gratis) — bijv. 'Zoet als jij! 🍯'" rows="2" style="display:none"></textarea>
+  </div>
+  <div class="drawer-voet">
+    <div class="besparing" id="besparing" style="display:none">Je bespaart <b id="besparingBedrag">€0,00</b> 🎉</div>
+    <div class="totaal"><span>Totaal</span><span id="totaal">€0,00</span></div>
+    <button class="btn btn-zwart" id="checkout">Afrekenen →</button>
+    <p class="demo-tip">Demo — in de echte shop reken je hier veilig af via Shopify (iDEAL voorop).</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast">Toegevoegd aan je winkelwagen 🍯</div>
+<div class="ribbon">Preview — concept door Job Stolwerk</div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+// ---------- marquees naadloos maken (content dupliceren) ----------
+['barTrack','uspTrack','lekkerTrack'].forEach(id => {
+  const t = document.getElementById(id);
+  if(t) t.innerHTML += t.innerHTML;
+});
+
+// ---------- demo-winkelwagen ----------
+const cart = {};
+const eur = n => '€' + n.toFixed(2).replace('.', ',');
+const drawer = document.getElementById('drawer');
+const scrim = document.getElementById('scrim');
+const DREMPEL = 35;      // gratis verzending
+const LEPEL = 50;        // gratis honinglepel
+const CADEAU_PRIJS = 2.95;
+let cadeau = false;
+
+function openDrawer(){ drawer.classList.add('open'); scrim.classList.add('open'); }
+function closeDrawer(){ drawer.classList.remove('open'); scrim.classList.remove('open'); }
+document.getElementById('cartOpen').addEventListener('click', openDrawer);
+document.getElementById('cartClose').addEventListener('click', closeDrawer);
+scrim.addEventListener('click', closeDrawer);
+
+function renderCart(){
+  const items = Object.values(cart);
+  const houder = document.getElementById('drawerItems');
+  const sub = items.reduce((s,i)=>s+i.prijs*i.qty,0);
+  const totaal = sub + (cadeau && items.length ? CADEAU_PRIJS : 0);
+  const aantal = items.reduce((s,i)=>s+i.qty,0);
+  const bespaard = items.reduce((s,i)=>s+((i.oud||i.prijs)-i.prijs)*i.qty,0);
+  document.getElementById('cartCount').textContent = aantal;
+  document.getElementById('totaal').textContent = eur(totaal);
+  document.getElementById('upsell').style.display = (aantal>0 && !cart['Hakhoning'] && sub < DREMPEL) ? 'block' : 'none';
+  document.getElementById('cadeauBlok').style.display = aantal>0 ? 'block' : 'none';
+  const besp = document.getElementById('besparing');
+  besp.style.display = bespaard>0 ? 'block' : 'none';
+  document.getElementById('besparingBedrag').textContent = eur(bespaard);
+
+  // progressbar met 2 mijlpalen: €35 (70%) en €50 (100%)
+  const vul = document.getElementById('verzendVul');
+  const pct = Math.min(100, sub/LEPEL*100);
+  vul.style.width = pct + '%';
+  vul.classList.toggle('vol', pct>=100);
+  const mijlpalen = document.querySelectorAll('.mijlpaal');
+  if(mijlpalen[0]) mijlpalen[0].classList.toggle('actief', sub>=DREMPEL);
+  if(mijlpalen[1]) mijlpalen[1].classList.toggle('actief', sub>=LEPEL);
+  document.getElementById('verzendTekst').innerHTML =
+    sub >= LEPEL ? '🥄 Topper! Gratis verzending <b style="color:#1a7a2e">én een gratis honinglepel</b> erbij.'
+    : sub >= DREMPEL ? '🎉 Je verzending is <b style="color:#1a7a2e">gratis</b>! Nog ' + eur(LEPEL-sub) + ' tot een gratis honinglepel 🥄'
+    : 'Nog <b>' + eur(DREMPEL-sub) + '</b> tot gratis verzending 🚚';
+
+  if(!items.length){
+    houder.innerHTML = '<p class="leeg-melding">Je winkelwagen is nog leeg… de bijen wachten! 🐝</p>';
+    return;
+  }
+  houder.innerHTML = items.map(i => `
+    <div class="d-item">
+      <div class="thumb"><img src="${i.img}" alt=""></div>
+      <div class="d-info">
+        <div class="d-naam">${i.naam}</div>
+        <div class="d-prijs">${eur(i.prijs)} p/st</div>
+      </div>
+      <div class="qty">
+        <button data-min="${i.naam}" aria-label="minder">−</button>
+        <span>${i.qty}</span>
+        <button data-plus="${i.naam}" aria-label="meer">+</button>
+      </div>
+    </div>`).join('');
+}
+
+document.addEventListener('click', e => {
+  const add = e.target.closest('.add');
+  if(add){
+    const {naam, prijs, img, oud} = add.dataset;
+    cart[naam] = cart[naam] || {naam, prijs:+prijs, oud: oud?+oud:null, img, qty:0};
+    cart[naam].qty++;
+    renderCart();
+    const toast = document.getElementById('toast');
+    toast.classList.add('zichtbaar');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(()=>toast.classList.remove('zichtbaar'), 1600);
+    if(!drawer.classList.contains('open')) setTimeout(openDrawer, 380);
+  }
+  if(e.target.dataset.plus){ cart[e.target.dataset.plus].qty++; renderCart(); }
+  if(e.target.dataset.min){
+    const it = cart[e.target.dataset.min];
+    it.qty--; if(it.qty<=0) delete cart[it.naam];
+    renderCart();
+  }
+});
+document.getElementById('cadeauCheck').addEventListener('change', e => {
+  cadeau = e.target.checked;
+  document.getElementById('cadeauBericht').style.display = cadeau ? 'block' : 'none';
+  renderCart();
+});
+document.getElementById('checkout').addEventListener('click', () => {
+  const toast = document.getElementById('toast');
+  toast.textContent = 'Demo-preview: hier start straks de echte Shopify-checkout ✨';
+  toast.classList.add('zichtbaar');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(()=>{ toast.classList.remove('zichtbaar'); toast.textContent='Toegevoegd aan je winkelwagen 🍯'; }, 2600);
+});
+renderCart();
+
+// ---------- cursor-dot ----------
+const dot = document.getElementById('cursorDot');
+if(matchMedia('(hover:hover)').matches){
+  let dx=0, dy=0, cx=innerWidth/2, cy=innerHeight/2;
+  addEventListener('mousemove', e => { dx=e.clientX; dy=e.clientY; dot.style.opacity=1; });
+  (function volg(){
+    cx += (dx-cx)*.18; cy += (dy-cy)*.18;
+    dot.style.left = cx+'px'; dot.style.top = cy+'px';
+    requestAnimationFrame(volg);
+  })();
+  document.addEventListener('mouseover', e => {
+    const actief = e.target.closest('a, button, .card, .smaak');
+    dot.style.width = actief ? '34px' : '14px';
+    dot.style.height = actief ? '34px' : '14px';
+  });
+}
+
+// ---------- motion (GSAP, progressive enhancement) ----------
+if(window.gsap){
+  gsap.registerPlugin(ScrollTrigger);
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!reduceMotion){
+    // hero intro
+    gsap.from('.hero-tekst > *', {y:34, opacity:0, duration:.8, stagger:.09, ease:'power3.out', delay:.1});
+    gsap.from('.hero-visual', {y:50, opacity:0, duration:.9, ease:'power3.out', delay:.25});
+
+    // zwevende pot + bij in hero
+    gsap.to('#heroPot', {y:-16, rotation:-4, duration:2.6, yoyo:true, repeat:-1, ease:'sine.inOut'});
+    gsap.to('#heroBij', {y:-12, x:8, rotation:22, duration:1.9, yoyo:true, repeat:-1, ease:'sine.inOut'});
+
+    // parallax op herofoto
+    gsap.to('.hero-foto img', {
+      yPercent:8, ease:'none',
+      scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}
+    });
+
+    // reveals
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.from(el, {
+        y:36, opacity:0, duration:.75, ease:'power3.out',
+        scrollTrigger:{trigger:el, start:'top 88%'}
+      });
+    });
+
+    // smaak-chips: speelse stagger
+    gsap.from('#smaakGrid .smaak', {
+      scale:.5, opacity:0, duration:.5, stagger:{each:.05, from:'random'},
+      ease:'back.out(2.4)',
+      scrollTrigger:{trigger:'#smaakGrid', start:'top 85%'}
+    });
+  }
+}
+</script>
+</body>
+</html>
