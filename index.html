@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Honing van Manuel — Rauwe Zeeuwse honing, recht van de imker (preview)</title>
+<title>Honing van Manuel · Rauwe Zeeuwse honing, recht van de imker (preview)</title>
 <meta name="description" content="Concept-preview van de nieuwe webshop voor Honing van Manuel.">
 <link rel="icon" type="image/png" href="assets/bee.png">
 <link rel="preload" as="image" href="assets/hero-manuel.jpg">
@@ -42,10 +42,6 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit}
 h1,h2,h3{font-family:var(--font-display);line-height:1.05;font-weight:800;letter-spacing:-.01em}
-.kicker{
-  font-family:var(--font-body);font-weight:700;font-size:.78rem;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--amber);display:block;margin-bottom:14px;
-}
 .hand{font-family:var(--font-hand)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 section{position:relative}
@@ -64,15 +60,13 @@ section{position:relative}
 .btn-geel{background:var(--geel);color:var(--zwart)}
 .btn-wit{background:var(--wit);color:var(--zwart)}
 
-/* ---------- announcement marquee ---------- */
+/* ---------- announcement (wisselende tekst) ---------- */
 .bar{
-  background:var(--zwart);color:var(--creme);overflow:hidden;white-space:nowrap;
-  padding:9px 0;font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  background:var(--zwart);color:var(--creme);text-align:center;
+  padding:9px 16px;font-size:.82rem;font-weight:600;letter-spacing:.04em;
 }
-.bar-track{display:inline-flex;gap:0;will-change:transform;animation:marquee 28s linear infinite}
-.bar span{display:inline-flex;align-items:center;gap:10px;padding:0 26px}
-.bar .dot{color:var(--geel)}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.bar span{display:inline-block;transition:opacity .4s ease}
+.bar span.wisselen{opacity:0}
 
 /* ---------- header ---------- */
 header{
@@ -163,15 +157,6 @@ header{
 .drip path{fill:var(--geel)}
 .drip-zwart path{fill:var(--zwart)}
 
-/* ---------- usp marquee ---------- */
-.usp{background:var(--zwart);color:var(--creme);overflow:hidden;padding:16px 0;border-bottom:var(--lijn)}
-.usp-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:marquee 22s linear infinite}
-.usp span{
-  font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:.06em;
-  display:inline-flex;align-items:center;gap:22px;padding:0 22px;text-transform:uppercase;
-}
-.usp .bijtje{width:26px;height:26px;flex:none}
-
 /* ---------- shop ---------- */
 .shop{padding:clamp(70px,9vw,120px) 0 30px}
 .shop-kop{max-width:620px;margin-bottom:52px}
@@ -241,43 +226,6 @@ header{
   margin:34px 0 0;
 }
 
-/* ---------- lekker-op marquee ---------- */
-.lekker{
-  background:var(--creme-diep);border-top:1.5px dashed #d8c9a4;border-bottom:1.5px dashed #d8c9a4;
-  overflow:hidden;padding:13px 0;
-}
-.lekker-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:marquee 30s linear infinite reverse}
-.lekker span{
-  font-family:var(--font-hand);font-weight:600;font-size:1rem;color:var(--amber);
-  padding:0 30px;
-}
-
-/* ---------- bundels ---------- */
-.bundels{padding:clamp(70px,9vw,110px) 0;background:var(--wit);border-top:var(--lijn)}
-.bundels-kop{max-width:620px;margin-bottom:46px}
-.bundels-kop h2{font-size:clamp(2rem,3.8vw,3rem);margin-bottom:12px}
-.bundel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-@media(max-width:900px){.bundel-grid{grid-template-columns:1fr}}
-.bundel{
-  background:var(--creme);border:var(--lijn);border-radius:var(--radius);padding:30px 28px;
-  box-shadow:0 4px 0 var(--zwart);display:flex;flex-direction:column;gap:9px;position:relative;
-  transition:transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
-}
-.bundel:hover{transform:translateY(-6px);box-shadow:0 10px 0 var(--zwart)}
-.bundel-uitgelicht{background:var(--geel)}
-.b-badge{
-  position:absolute;top:-16px;right:18px;background:var(--zwart);color:var(--geel);
-  font-family:var(--font-hand);font-size:.75rem;font-weight:700;padding:7px 14px;
-  border-radius:999px;transform:rotate(3deg);
-}
-.b-emoji{font-size:2rem}
-.bundel h3{font-size:1.25rem}
-.bundel p{font-size:.88rem;color:#4c4438;flex:1}
-.b-prijs{font-family:var(--font-display);font-weight:800;font-size:1.5rem}
-.b-prijs .oud{font-size:.95rem;font-weight:600;color:#9a8a6a;text-decoration:line-through;margin-right:6px}
-.bespaar{font-size:.8rem;font-weight:700;color:#1a7a2e}
-.bundel .add{align-self:flex-start;margin-top:8px}
-
 /* ---------- zakelijk ---------- */
 .zakelijk{
   margin-top:56px;background:var(--wit);border:var(--lijn);border-radius:var(--radius);
@@ -286,20 +234,6 @@ header{
 }
 .zakelijk h3{font-size:1.3rem;margin-bottom:6px}
 .zakelijk p{font-size:.92rem;max-width:36rem}
-
-/* ---------- smakenband ---------- */
-.smaken{padding:clamp(60px,7vw,100px) 0}
-.smaken-kop{text-align:center;max-width:640px;margin:0 auto 44px}
-.smaken-kop h2{font-size:clamp(2rem,3.6vw,3rem)}
-.smaken-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:900px;margin:0 auto}
-.smaak{
-  font-family:var(--font-display);font-weight:700;font-size:clamp(.95rem,1.4vw,1.15rem);
-  background:var(--wit);border:var(--lijn);border-radius:999px;padding:12px 22px;
-  display:inline-flex;gap:10px;align-items:center;box-shadow:0 3px 0 var(--zwart);
-  transition:transform .2s cubic-bezier(.34,1.56,.64,1), background .2s;cursor:default;
-}
-.smaak:hover{transform:translateY(-5px) rotate(-2deg);background:var(--geel)}
-.smaak:nth-child(even):hover{transform:translateY(-5px) rotate(2deg)}
 
 /* ---------- verhaal ---------- */
 .verhaal{background:var(--creme-diep);border-top:var(--lijn);border-bottom:var(--lijn);padding:clamp(70px,9vw,120px) 0}
@@ -494,13 +428,7 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
 
 <!-- announcement -->
 <div class="bar" aria-hidden="true">
-  <div class="bar-track" id="barTrack">
-    <span>🍯 Gratis verzending in heel NL vanaf €35</span><span class="dot">•</span>
-    <span>🐝 Vers van de imker uit Zeeland</span><span class="dot">•</span>
-    <span>🎁 Vanaf €50: gratis honinglepel cadeau</span><span class="dot">•</span>
-    <span>🌶️ Hot Honey — it might sting!</span><span class="dot">•</span>
-    <span>🧡 20% korting bij 4+ bakjes hakhoning</span><span class="dot">•</span>
-  </div>
+  <span id="barTekst">🍯 Gratis verzending in heel NL vanaf €35</span>
 </div>
 
 <header>
@@ -508,7 +436,6 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
     <a href="#" class="nav-logo" aria-label="Honing van Manuel"><img src="assets/logo.png" alt="Honing van Manuel"></a>
     <ul class="nav-links">
       <li><a href="#shop">De oogst</a></li>
-      <li><a href="#smaken">Smaken</a></li>
       <li><a href="#verhaal">Het verhaal</a></li>
       <li><a href="#horeca">Horeca</a></li>
     </ul>
@@ -520,7 +447,6 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-tekst">
-      <span class="kicker" style="color:var(--zwart);opacity:.65">Ambachtelijke Zeeuwse imkerij</span>
       <h1>Rauwe honing,<br><span class="accent">recht van de imker.</span></h1>
       <p class="lead">Koud geslingerd, niet verhit, niets toegevoegd. Elke pot proeft naar het Zeeuwse seizoen en de bloemen waar mijn bijen op vlogen.</p>
       <div class="hero-cta">
@@ -542,24 +468,12 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
   </div>
 </section>
 
-<!-- usp marquee -->
-<div class="usp" aria-hidden="true">
-  <div class="usp-track" id="uspTrack">
-    <span>Rauw &amp; ongefilterd <img class="bijtje" src="assets/bee.png" alt=""></span>
-    <span>Koud geslingerd <img class="bijtje" src="assets/bee.png" alt=""></span>
-    <span>Geen toevoegingen <img class="bijtje" src="assets/bee.png" alt=""></span>
-    <span>Vers van de imker <img class="bijtje" src="assets/bee.png" alt=""></span>
-    <span>100% Zeeuws <img class="bijtje" src="assets/bee.png" alt=""></span>
-  </div>
-</div>
-
 <!-- shop -->
 <section class="shop" id="shop">
   <div class="wrap">
     <div class="shop-kop reveal">
-      <span class="kicker">De oogst</span>
       <h2>Kies jouw pot</h2>
-      <p>Drie eerlijke producten, met de hand afgevuld — en een proefpakket om alles in één keer te ontdekken.</p>
+      <p>Drie eerlijke producten, met de hand afgevuld. En een proefpakket om alles in één keer te ontdekken.</p>
     </div>
     <div class="cards">
       <article class="card reveal">
@@ -567,7 +481,7 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
         <div class="card-visual v-geel"><img src="assets/pot-zeeuwse-honing.webp" alt="Pot Natuurlijke Zeeuwse Honing"></div>
         <div class="card-info">
           <h3>Zeeuwse Honing</h3>
-          <p>De klassieker. Koud geslingerd, vol karakter, vol enzymen en lokale pollen. Elke oogst smaakt anders — zoals het hoort.</p>
+          <p>De klassieker. Koud geslingerd, vol karakter, vol enzymen en lokale pollen. Elke oogst smaakt anders, zoals het hoort.</p>
           <div class="card-prijs">
             <span class="prijs">€9,50 <span class="per">/ pot</span></span>
             <button class="add" data-naam="Zeeuwse Honing" data-prijs="9.50" data-img="assets/pot-zeeuwse-honing.webp">+ Winkelmand</button>
@@ -613,79 +527,7 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
         </div>
       </article>
     </div>
-    <p class="shop-note">→ psst: vanaf €35 is de verzending gratis — een proefpakket + een paar bakjes hakhoning en je zit er zo 😉</p>
-  </div>
-</section>
-
-<!-- lekker op... -->
-<div class="lekker" aria-hidden="true">
-  <div class="lekker-track" id="lekkerTrack">
-    <span>Lekker op toast 🍞</span><span>in de thee ☕</span><span>door de yoghurt 🥣</span>
-    <span>op de kaasplank 🧀</span><span>over de pizza 🍕</span><span>op pannenkoeken 🥞</span>
-    <span>in de marinade 🍗</span><span>zo uit de pot 🥄</span>
-  </div>
-</div>
-
-<!-- smaken -->
-<section class="smaken" id="smaken">
-  <div class="wrap">
-    <div class="smaken-kop reveal">
-      <span class="kicker">Hakhoning</span>
-      <h2>Welke smaak past bij jou?</h2>
-      <p>Twaalf smaken, één basis: échte honing. Mix &amp; match je eigen doosje — bij 4 of meer bakjes krijg je 20% korting.</p>
-    </div>
-    <div class="smaken-grid" id="smaakGrid">
-      <span class="smaak">🌿 Munt</span>
-      <span class="smaak">✨ Gember</span>
-      <span class="smaak">🟤 Kaneel</span>
-      <span class="smaak">🍒 Kers</span>
-      <span class="smaak">🍃 Mojito</span>
-      <span class="smaak">🌱 Eucalyptus</span>
-      <span class="smaak">⚫ Drop</span>
-      <span class="smaak">🍋 Limoncello</span>
-      <span class="smaak">🍎 Appel + Kaneel</span>
-      <span class="smaak">🥤 Cola</span>
-      <span class="smaak">⭐ Anijs</span>
-      <span class="smaak">🍮 Caramel</span>
-    </div>
-  </div>
-</section>
-
-<!-- bundels -->
-<section class="bundels" id="bundels">
-  <div class="wrap">
-    <div class="bundels-kop reveal">
-      <span class="kicker">Slim sparen</span>
-      <h2>Pakketten die zichzelf terugverdienen</h2>
-      <p>Meer proeven, minder betalen — en sneller bij de gratis verzending.</p>
-    </div>
-    <div class="bundel-grid">
-      <article class="bundel reveal">
-        <div class="b-emoji">🍯🌶️</div>
-        <h3>Duo Zoet &amp; Heet</h3>
-        <p>1× Zeeuwse Honing + 1× Hot Honey</p>
-        <div class="b-prijs"><span class="oud">€18,00</span> <b>€16,50</b></div>
-        <div class="bespaar">Je bespaart €1,50</div>
-        <button class="add" data-naam="Duo Zoet & Heet" data-prijs="16.50" data-oud="18.00" data-img="assets/fles-hot-honey.webp">+ Winkelmand</button>
-      </article>
-      <article class="bundel reveal">
-        <div class="b-emoji">🎨</div>
-        <h3>Alle 12 smaken hakhoning</h3>
-        <p>Het complete smakenpalet in één doos</p>
-        <div class="b-prijs"><span class="oud">€42,00</span> <b>€33,50</b></div>
-        <div class="bespaar">Je bespaart €8,50 (20%)</div>
-        <button class="add" data-naam="12 smaken hakhoning" data-prijs="33.50" data-oud="42.00" data-img="assets/bakje-hakhoning.webp">+ Winkelmand</button>
-      </article>
-      <article class="bundel bundel-uitgelicht reveal">
-        <span class="b-badge">Incl. gratis verzending 🚚</span>
-        <div class="b-emoji">👨‍👩‍👧‍👦</div>
-        <h3>XL Familiepakket</h3>
-        <p>2× Zeeuwse Honing + 1× Hot Honey + 4× hakhoning</p>
-        <div class="b-prijs"><span class="oud">€50,00</span> <b>€44,50</b></div>
-        <div class="bespaar">Je bespaart €5,50 + gratis honinglepel</div>
-        <button class="add" data-naam="XL Familiepakket" data-prijs="44.50" data-oud="50.00" data-img="assets/pot-zeeuwse-honing.webp">+ Winkelmand</button>
-      </article>
-    </div>
+    <p class="shop-note">Psst: vanaf €35 is de verzending gratis. Een proefpakket en een paar bakjes hakhoning en je zit er zo 😉</p>
   </div>
 </section>
 
@@ -705,11 +547,10 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
       </svg>
     </div>
     <div class="verhaal-tekst reveal">
-      <span class="kicker">De imker achter de pot</span>
       <h2>Hoi, ik ben Manuel</h2>
-      <p>Mijn bijen verzamelen nectar uit de directe omgeving. Daarom zit elke pot vol unieke smaken en eigenschappen van het Zeeuwse seizoen — geen twee oogsten zijn hetzelfde.</p>
+      <p>Mijn bijen verzamelen nectar uit de directe omgeving. Daarom zit elke pot vol unieke smaken en eigenschappen van het Zeeuwse seizoen. Geen twee oogsten zijn hetzelfde.</p>
       <p>Ik slinger koud, voeg niets toe en vul elke pot met de hand af. Geen 'gemengde niet-EU honing' zoals in de supermarkt, maar een eerlijk natuurproduct waar ik trots op ben. Op Instagram en TikTok neem ik je mee achter de schermen: van bijenkast tot pot.</p>
-      <p class="handtekening">— Groetjes, Imker Manuel 🐝</p>
+      <p class="handtekening">Groetjes, Imker Manuel 🐝</p>
       <div class="soc-knoppen">
         <a class="btn btn-zwart" href="https://www.instagram.com/honing.van.manuel/" target="_blank" rel="noopener">Instagram ↗</a>
         <a class="btn btn-wit" href="https://www.tiktok.com/@imkermanuel" target="_blank" rel="noopener">TikTok ↗</a>
@@ -722,7 +563,6 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
 <section class="vergelijk">
   <div class="wrap">
     <div class="vergelijk-kop reveal">
-      <span class="kicker">Het verschil dat je proeft</span>
       <h2>Echte honing vs. de supermarkt</h2>
     </div>
     <div class="vs-grid">
@@ -730,7 +570,7 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
         <h3><span>🍯</span> Honing van Manuel</h3>
         <ul>
           <li><b>✓</b> 100% Zeeuws, van één imker die je kent</li>
-          <li><b>✓</b> Koud geslingerd — vol enzymen, mineralen &amp; antioxidanten</li>
+          <li><b>✓</b> Koud geslingerd, vol enzymen, mineralen &amp; antioxidanten</li>
           <li><b>✓</b> Helpt bij hooikoorts door lokale pollen</li>
           <li><b>✓</b> Elke pot weerspiegelt het seizoen</li>
         </ul>
@@ -739,7 +579,7 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
         <h3><span>🏭</span> Supermarkthoning</h3>
         <ul>
           <li><b>✕</b> Vaak 'gemengde honing uit niet-EU-landen'</li>
-          <li><b>✕</b> Verhit en gefilterd — goede stoffen verdwijnen</li>
+          <li><b>✕</b> Verhit en gefilterd, goede stoffen verdwijnen</li>
           <li><b>✕</b> Anoniem: geen verhaal, geen herkomst</li>
           <li><b>✕</b> Overal hetzelfde smaakje</li>
         </ul>
@@ -752,7 +592,6 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
 <section class="horeca" id="horeca">
   <div class="wrap">
     <div class="horeca-kop reveal">
-      <span class="kicker" style="color:var(--zwart);opacity:.65">Ook op de kaart</span>
       <h2>Chefs proeven het verschil</h2>
       <p>Van bijenkast tot bordje: Manuels honing wordt geproefd én gebruikt in de Zeeuwse horeca.</p>
     </div>
@@ -764,7 +603,7 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
     <div class="zakelijk reveal">
       <div>
         <h3>Zeeuwse honing als relatiegeschenk of op je menukaart?</h3>
-        <p>Kerstpakketten, potjes met eigen etiket of een vaste horeca-levering — altijd maatwerk, altijd rechtstreeks van de imker.</p>
+        <p>Kerstpakketten, potjes met eigen etiket of een vaste horeca-levering. Altijd maatwerk, altijd rechtstreeks van de imker.</p>
       </div>
       <a class="btn btn-zwart" href="mailto:info@honingvanmanuel.nl?subject=Zakelijke%20aanvraag">Vraag een offerte aan</a>
     </div>
@@ -775,27 +614,26 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
 <section class="reviews">
   <div class="wrap">
     <div class="reviews-kop reveal">
-      <span class="kicker">Zeeuws goud, zeggen zij</span>
       <h2>Wat proevers ervan vinden</h2>
     </div>
     <div class="review-grid">
       <div class="review reveal">
         <div class="sterren">★★★★★</div>
         <p>"Je proeft gewoon dat dit échte honing is. Die van de supermarkt komt er niet meer in."</p>
-        <span class="naam">— Voorbeeldreview</span>
+        <span class="naam">Voorbeeldreview</span>
       </div>
       <div class="review reveal">
         <div class="sterren">★★★★★</div>
         <p>"De Hot Honey op een pizza is levensveranderend. En leuk om te zien wie 'm maakt via TikTok!"</p>
-        <span class="naam">— Voorbeeldreview</span>
+        <span class="naam">Voorbeeldreview</span>
       </div>
       <div class="review reveal">
         <div class="sterren">★★★★★</div>
-        <p>"Proefpakket cadeau gedaan — groot succes. De hakhoning met kaneel was als eerste op."</p>
-        <span class="naam">— Voorbeeldreview</span>
+        <p>"Proefpakket cadeau gedaan, groot succes. De hakhoning met kaneel was als eerste op."</p>
+        <span class="naam">Voorbeeldreview</span>
       </div>
     </div>
-    <p class="reviews-voetnoot">In de echte shop komen hier jouw geverifieerde klantreviews (bijv. via Judge.me) — met sterren die ook in Google zichtbaar zijn.</p>
+    <p class="reviews-voetnoot">In de echte shop komen hier jouw geverifieerde klantreviews, met sterren die ook in Google zichtbaar zijn.</p>
   </div>
 </section>
 
@@ -822,7 +660,7 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
     </div>
     <div class="preview-note">
       <span>© 2026 Honing van Manuel · Ambachtelijke Zeeuwse imkerij</span>
-      <span>Concept-preview door Job Stolwerk (JS - Crest) — aanbod, bundels en reviews zijn indicatief</span>
+      <span>Concept-preview door Job Stolwerk (JS - Crest). Aanbod en reviews zijn indicatief.</span>
     </div>
   </div>
 </footer>
@@ -838,8 +676,8 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
     <div class="verzend-tekst" id="verzendTekst">Nog <b>€35,00</b> tot gratis verzending 🚚</div>
     <div class="verzend-balk">
       <div class="verzend-vul" id="verzendVul"></div>
-      <span class="mijlpaal" style="left:70%" title="€35 — gratis verzending">🚚</span>
-      <span class="mijlpaal" style="left:calc(100% - 20px)" title="€50 — gratis honinglepel">🥄</span>
+      <span class="mijlpaal" style="left:70%" title="€35: gratis verzending">🚚</span>
+      <span class="mijlpaal" style="left:calc(100% - 20px)" title="€50: gratis honinglepel">🥄</span>
     </div>
     <div class="mijlpaal-labels"><span>€35 gratis verzending</span><span>€50 + gratis lepel</span></div>
   </div>
@@ -850,37 +688,49 @@ footer{background:var(--creme);padding:46px 0 34px;border-top:var(--lijn)}
     <div class="upsell-titel">Maak 'm compleet ↓</div>
     <div class="upsell-rij">
       <img src="assets/bakje-hakhoning.webp" alt="">
-      <div class="u-tekst">Bakje hakhoning erbij? <br><b>€3,50</b> — 12 smaken</div>
+      <div class="u-tekst">Bakje hakhoning erbij? <br><b>€3,50</b>, keuze uit 12 smaken</div>
       <button class="add" data-naam="Hakhoning" data-prijs="3.50" data-img="assets/bakje-hakhoning.webp">+ Voeg toe</button>
     </div>
   </div>
   <div class="cadeau" id="cadeauBlok" style="display:none">
     <label class="cadeau-check">
       <input type="checkbox" id="cadeauCheck">
-      <span>🎁 Dit is een cadeau — inpakken + kaartje <b>(+€2,95)</b></span>
+      <span>🎁 Dit is een cadeau: inpakken + kaartje <b>(+€2,95)</b></span>
     </label>
-    <textarea class="cadeau-bericht" id="cadeauBericht" placeholder="Persoonlijk bericht (gratis) — bijv. 'Zoet als jij! 🍯'" rows="2" style="display:none"></textarea>
+    <textarea class="cadeau-bericht" id="cadeauBericht" placeholder="Persoonlijk bericht (gratis), bijv. 'Zoet als jij! 🍯'" rows="2" style="display:none"></textarea>
   </div>
   <div class="drawer-voet">
     <div class="besparing" id="besparing" style="display:none">Je bespaart <b id="besparingBedrag">€0,00</b> 🎉</div>
     <div class="totaal"><span>Totaal</span><span id="totaal">€0,00</span></div>
     <button class="btn btn-zwart" id="checkout">Afrekenen →</button>
-    <p class="demo-tip">Demo — in de echte shop reken je hier veilig af via Shopify (iDEAL voorop).</p>
+    <p class="demo-tip">Demo. In de echte shop reken je hier veilig af via Shopify, met iDEAL voorop.</p>
   </div>
 </aside>
 
 <div class="toast" id="toast">Toegevoegd aan je winkelwagen 🍯</div>
-<div class="ribbon">Preview — concept door Job Stolwerk</div>
+<div class="ribbon">Preview · concept door Job Stolwerk</div>
 <div class="cursor-dot" id="cursorDot"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
-// ---------- marquees naadloos maken (content dupliceren) ----------
-['barTrack','uspTrack','lekkerTrack'].forEach(id => {
-  const t = document.getElementById(id);
-  if(t) t.innerHTML += t.innerHTML;
-});
+// ---------- announcement: rustig wisselende tekst ----------
+const barTeksten = [
+  '\ud83c\udf6f Gratis verzending in heel NL vanaf \u20ac35',
+  '\ud83d\udc1d Vers van de imker uit Zeeland',
+  '\ud83c\udf81 Vanaf \u20ac50: gratis honinglepel cadeau',
+  '\ud83c\udf36\ufe0f Hot Honey: it might sting!',
+];
+const barEl = document.getElementById('barTekst');
+let barI = 0;
+setInterval(() => {
+  barEl.classList.add('wisselen');
+  setTimeout(() => {
+    barI = (barI + 1) % barTeksten.length;
+    barEl.textContent = barTeksten[barI];
+    barEl.classList.remove('wisselen');
+  }, 400);
+}, 4500);
 
 // ---------- demo-winkelwagen ----------
 const cart = {};
@@ -1022,13 +872,6 @@ if(window.gsap){
         y:36, opacity:0, duration:.75, ease:'power3.out',
         scrollTrigger:{trigger:el, start:'top 88%'}
       });
-    });
-
-    // smaak-chips: speelse stagger
-    gsap.from('#smaakGrid .smaak', {
-      scale:.5, opacity:0, duration:.5, stagger:{each:.05, from:'random'},
-      ease:'back.out(2.4)',
-      scrollTrigger:{trigger:'#smaakGrid', start:'top 85%'}
     });
   }
 }
